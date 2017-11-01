@@ -40,8 +40,11 @@ export class ShoplistComponent implements OnInit {
       this.shoplists[this.shoplists.length-1].items.push(item)
       console.log("push one item to the list");
     }
+    
   }
-
+  deleteitem(item){
+    this.shoplists[this.shoplists.length-1].items.splice(this.shoplists[this.shoplists.length-1].items.indexOf(item), 1);
+  }
  
 
 }
@@ -65,5 +68,5 @@ function Item(itemname, itemtotalprice, itemtotalunit, itemunit, itemtype, unitp
 
 function  gettripdate(){
   var d = new Date();
-  return d.getFullYear.toString() + "/" + d.getMonth.toString() + "/" + d.getDate.toString();
+  return (d.getFullYear().toString() + "/" + d.getMonth().toString() + "/" + d.getDate().toString());
 }
