@@ -1,0 +1,28 @@
+<title>Shop list</title>
+<div class = "tripinfoinput">
+  <label for="tripinfo">Please enter the location of the trip</label><br>
+  <input type = "text" placeholder = "Please enter your trip location" #triplocation><br>
+  <button (click) = "createnewtrip(triplocation.value)"> Create New Trip </button>
+</div>
+
+
+
+<div class = "itemappend">
+    <label for="itemname">Item name: </label>
+    <input type = "text" placeholder = "ex: apple" #itemname><br>
+    <label for="itemtotalprice">Item Price: </label>
+    <input type = "text" placeholder = "ex: $100" #itemtotalprice><br>
+    <label for="itemtotalunit">Item amount: </label>
+    <input type = "text" placeholder = "ex: 7" #itemtotalunit>
+    <label for="itemunit">Unit: </label>
+    <input type = "text" placeholder = "ex: lbs" #itemunit><br>
+    <label for="itemtype">type: </label>
+    <input type = "text" placeholder = "ex: food" #itemtype><br>
+    <button class = "itemappend button" (click) = "appenditems(itemname.value, itemtotalprice.value, itemtotalunit.value, itemunit.value, itemtype.value)"> Add to the list </button>
+  </div>
+
+  <ul>
+      <li *ngFor = "let item of shoplists[shoplists.length-1].items; let i = index">
+        Name: {{item.itemname}} Type: {{item.itemtype}} Total cost: {{item.itemtotalprice}}   Unit price: {{item.unitprice}}/{{item.itemunit}}   Total bought: {{item.itemtotalunit}} 
+      </li>
+    </ul>
