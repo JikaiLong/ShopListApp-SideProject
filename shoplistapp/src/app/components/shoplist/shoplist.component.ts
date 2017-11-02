@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 
-
 @Component({
   selector: 'app-shoplist',
   templateUrl: './shoplist.component.html',
@@ -30,9 +29,9 @@ export class ShoplistComponent implements OnInit {
     this.addshoplist(trip);
   }
 
-  appenditems(itemname,itemtotalprice,itemtotalunit,itemunit,itemtype){
+  appenditems(itemname,itemtotalprice,itemtotalunit,itemunit){
     var unitprice = (parseFloat(itemtotalprice)/parseFloat(itemtotalunit)).toFixed(2);
-
+    var itemtype = "default"
     if((this.shoplists.length) == 0){
       alert("no trip in the list")
       return false;
@@ -52,9 +51,9 @@ export class ShoplistComponent implements OnInit {
     console.log(this.JsonConvert(this.shoplists));
   }
 
-  
+
   JsonConvert(shoplists){
-    var shoplistjson = '"shoplists":[\n';
+    var shoplistjson = '{"shoplists":[\n';
     var tempitemjson;
     for(var i = 0; i < shoplists.length; i++){
             shoplistjson += '{\n';

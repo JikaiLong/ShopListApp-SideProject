@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ShoplistComponent } from './components/shoplist/shoplist.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    ShoplistComponent
+    ShoplistComponent,
   ],
   imports: [
     BrowserModule

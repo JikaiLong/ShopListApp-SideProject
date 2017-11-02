@@ -1,5 +1,5 @@
 <title>Shop list</title>
-
+<body>
 <h1>Shop List</h1>
 <h2>
 <div class = "tripinfoinput">
@@ -14,24 +14,25 @@
     <label class = "itemlabel" for="itemname">Item name: </label>
     <input class= "iteminput" type = "text" placeholder = "ex: apple" #itemname><br>
     <label class = "itemlabel" for="itemtotalprice">Item Price: </label>
-    <input class= "iteminput" type = "text" placeholder = "ex: $100" #itemtotalprice><br>
+    <input class= "iteminput" type = "text" placeholder = "ex: 100" #itemtotalprice><br>
     <label class = "itemlabel" for="itemtotalunit">Item amount: </label>
     <input class= "iteminput" type = "text" placeholder = "ex: 7" #itemtotalunit>
     <label class = "itemlabel" for="itemunit">Unit: </label>
-    <input class= "iteminput" type = "text" placeholder = "ex: lbs" #itemunit><br>
-    <label class = "itemlabel" for="itemtype">type: </label>
-    <input class= "iteminput" type = "text" placeholder = "ex: food" #itemtype><br>
-    <button id = "itemappendbutton" (click) = "appenditems(itemname.value, itemtotalprice.value, itemtotalunit.value, itemunit.value, itemtype.value)"> Add to the list </button>
+    <input class= "iteminput" type = "text" placeholder = "ex: lb" #itemunit><br>
+    <button id = "itemappendbutton" (click) = "appenditems(itemname.value, itemtotalprice.value, itemtotalunit.value, itemunit.value)"> Add to the list </button>
   </div>
 </h2>
 <h3>
   <ul> 
       {{shoplists[shoplists.length-1].triplocation}} and the date is {{shoplists[shoplists.length-1].tripdate}}<br/>
-      <li *ngFor = "let item of shoplists[shoplists.length-1].items; let i = index">
-        Name: {{item.itemname}} Type: {{item.itemtype}} Total cost: {{item.itemtotalprice}}   Unit price: {{item.unitprice}}/{{item.itemunit}}   Total bought: {{item.itemtotalunit}} 
+      <li id = "displaylist" *ngFor = "let item of shoplists[shoplists.length-1].items; let i = index">
+        {{item.itemname}} <br/> Cost: {{item.itemtotalprice}} <br/> PerUnit: {{item.unitprice}}/{{item.itemunit}}
+        <div id = "remove">
         <button id = "removebutton" type = "button" (click)="deleteitem(item)">X</button>
+        </div>
       </li>
     </ul>
 
   </h3>
   <button id = "tripinfobutton" (click) = "displaydata()"> Displaydata </button>
+</body>

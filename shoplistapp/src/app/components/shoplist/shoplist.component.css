@@ -1,0 +1,93 @@
+body{
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 17px;
+    line-height: 180%;
+    text-align: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+h1{
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-style: oblique;
+    font-size: 40px;
+    color:white;
+    text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black;
+}
+
+#tripinfo{
+    font-size:20px;
+}
+
+.iteminput{
+    font-size:16px;
+    width:300px;
+    height:40px;
+}
+#tripinfoinput{
+    font-size:20px;
+    width:400px;
+    height:50px;
+}
+
+#tripinfobutton{
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid black;
+}
+
+#itemappendbutton{
+    background-color: lightblue;
+    border: none;
+    color: black;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid black;
+}
+
+#displaylist{
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;
+    background-color:white;
+    list-style-type: none;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size:20px;
+    line-height: 100%;
+    display:inline-block;
+}
+
+
+#removebutton{
+    background-color: lightgreen;
+    border: none;
+    color:black;
+    padding: 7px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 4px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid black;
+}
