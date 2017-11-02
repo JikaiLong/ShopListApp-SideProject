@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-shoplist',
   templateUrl: './shoplist.component.html',
@@ -45,9 +47,47 @@ export class ShoplistComponent implements OnInit {
   deleteitem(item){
     this.shoplists[this.shoplists.length-1].items.splice(this.shoplists[this.shoplists.length-1].items.indexOf(item), 1);
   }
- 
 
-}
+  displaydata(){
+    console.log(this.JsonConvert(this.shoplists));
+  }
+
+  
+  JsonConvert(shoplists){
+    var shoplistjson = '"shoplists":[\n';
+    var tempitemjson;
+    for(var i = 0; i < shoplists.length; i++){
+            shoplistjson += '{\n';
+            shoplistjson += '"triplocation":"' + shoplists[i].triplocation + '",\n';
+            shoplistjson += '"tripdate":"'+ shoplists[i].tripdate +'",\n';
+            shoplistjson += '"items":[\n';
+            for(var k = 0; k < shoplists[i].items.length; k++){
+                shoplistjson += '{';
+                shoplistjson += '"itemname":"' + shoplists[i].items[k].itemname + '",\n';
+                shoplistjson += '"itemtotalprice":"' + shoplists[i].items[k].itemtotalprice + '",\n';
+                shoplistjson += '"itemtotalunit":"' + shoplists[i].items[k].itemtotalunit + '",\n';
+                shoplistjson += '"itemunit":"' + shoplists[i].items[k].itemunit + '",\n';
+                shoplistjson += '"itemtype":"' + shoplists[i].items[k].itemtype + '",\n';
+                shoplistjson += '"unitprice":"' + shoplists[i].items[k].unitprice + '",\n';
+                shoplistjson += '}\n';
+                if(shoplists[i].items[k+1] != null){
+                  shoplistjson += ',\n';
+                }
+            }
+            shoplistjson += ']}\n';
+            if(shoplists[i+1] != null){
+              shoplistjson += ',\n';
+            }
+
+    }
+    shoplistjson += ']}';
+    return shoplistjson;
+  }
+
+
+  }
+
+
 
 
 
@@ -70,3 +110,5 @@ function  gettripdate(){
   var d = new Date();
   return (d.getFullYear().toString() + "/" + d.getMonth().toString() + "/" + d.getDate().toString());
 }
+
+
