@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-shoplist',
@@ -7,16 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shoplist.component.css']
 })
 export class ShoplistComponent implements OnInit {
- 
   shoplists;
   trip;
-  constructor() { 
+  newesttrip;
+  constructor(private dataService:DataService) { 
     console.log("construct success")
   }
 
   ngOnInit() {
     console.log("ngOnInit success")
     this.shoplists = [];
+    this.dataService.getData().subscribe((data) => {
+      this.shoplists = data;
+    });
   }
 
   addshoplist(shoplist){
@@ -27,6 +30,7 @@ export class ShoplistComponent implements OnInit {
   createnewtrip(triplocation){
     var trip = new Trip(triplocation);
     this.addshoplist(trip);
+    this.newesttrip = trip;
   }
 
   appenditems(itemname,itemtotalprice,itemtotalunit,itemunit){
@@ -38,7 +42,7 @@ export class ShoplistComponent implements OnInit {
     }
     else{
       var item = new Item(itemname,itemtotalprice,itemtotalunit,itemunit,itemtype,unitprice);
-      this.shoplists[this.shoplists.length-1].items.push(item)
+      this.shoplists[this.shoplists.length-1].items.push(item);
       console.log("push one item to the list");
     }
     
@@ -48,42 +52,8 @@ export class ShoplistComponent implements OnInit {
   }
 
   displaydata(){
-    console.log(this.JsonConvert(this.shoplists));
+    console.log(this.shoplists);
   }
-
-
-  JsonConvert(shoplists){
-    var shoplistjson = '{"shoplists":[\n';
-    var tempitemjson;
-    for(var i = 0; i < shoplists.length; i++){
-            shoplistjson += '{\n';
-            shoplistjson += '"triplocation":"' + shoplists[i].triplocation + '",\n';
-            shoplistjson += '"tripdate":"'+ shoplists[i].tripdate +'",\n';
-            shoplistjson += '"items":[\n';
-            for(var k = 0; k < shoplists[i].items.length; k++){
-                shoplistjson += '{';
-                shoplistjson += '"itemname":"' + shoplists[i].items[k].itemname + '",\n';
-                shoplistjson += '"itemtotalprice":"' + shoplists[i].items[k].itemtotalprice + '",\n';
-                shoplistjson += '"itemtotalunit":"' + shoplists[i].items[k].itemtotalunit + '",\n';
-                shoplistjson += '"itemunit":"' + shoplists[i].items[k].itemunit + '",\n';
-                shoplistjson += '"itemtype":"' + shoplists[i].items[k].itemtype + '",\n';
-                shoplistjson += '"unitprice":"' + shoplists[i].items[k].unitprice + '",\n';
-                shoplistjson += '}\n';
-                if(shoplists[i].items[k+1] != null){
-                  shoplistjson += ',\n';
-                }
-            }
-            shoplistjson += ']}\n';
-            if(shoplists[i+1] != null){
-              shoplistjson += ',\n';
-            }
-
-    }
-    shoplistjson += ']}';
-    return shoplistjson;
-  }
-
-
   }
 
 

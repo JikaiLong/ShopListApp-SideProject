@@ -1,0 +1,87 @@
+{"shoplists":[
+    {
+    "triplocation":"Walmart",
+    "tripdate":"2017/10/3",
+    "items":[
+        {"itemname":"Apple",
+        "itemtotalprice":"50",
+        "itemtotalunit":"5",
+        "itemunit":"lb",
+        "itemtype":"default",
+        "unitprice":"10.00"
+        }
+        ,
+        {"itemname":"beef",
+        "itemtotalprice":"75",
+        "itemtotalunit":"3",
+        "itemunit":"lb",
+        "itemtype":"default",
+        "unitprice":"25.00"
+        }
+        ,
+        {"itemname":"milk",
+        "itemtotalprice":"20",
+        "itemtotalunit":"5",
+        "itemunit":"L",
+        "itemtype":"default",
+        "unitprice":"4.00"
+        }
+        ,
+        {"itemname":"multi-vegetables",
+        "itemtotalprice":"30",
+        "itemtotalunit":"1",
+        "itemunit":"bag",
+        "itemtype":"default",
+        "unitprice":"30.00"
+        }
+        ]
+    },
+    {
+    "triplocation":"shoppers",
+    "tripdate":"2017/10/3",
+    "items":[
+        {"itemname":"protein shake",
+        "itemtotalprice":"50",
+        "itemtotalunit":"1",
+        "itemunit":"jar",
+        "itemtype":"default",
+        "unitprice":"50.00"
+        }
+        ,
+        {"itemname":"toilet paper",
+        "itemtotalprice":"2",
+        "itemtotalunit":"1",
+        "itemunit":"bag",
+        "itemtype":"default",
+        "unitprice":"2.00"
+        }
+        ,
+        {"itemname":"bacon ",
+        "itemtotalprice":"50",
+        "itemtotalunit":"10",
+        "itemunit":"bag",
+        "itemtype":"default",
+        "unitprice":"5.00"
+        }
+        ]
+    },
+        {
+        "triplocation":"Shopers",
+        "tripdate":"2017/10/3",
+        "items":[
+        ]
+    },
+    {
+    "triplocation":"BMW Store",
+    "tripdate":"2017/10/3",
+    "items":[
+        {"itemname":"BMW Car",
+        "itemtotalprice":"10000000",
+        "itemtotalunit":"1",
+        "itemunit":"car",
+        "itemtype":"default",
+        "unitprice":"10000000.00"
+        }
+        ]
+    }
+]}
